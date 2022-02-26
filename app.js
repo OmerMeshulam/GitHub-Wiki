@@ -9,13 +9,12 @@ if(userInput !== ''){
 github.getUser(userInput)
 .then(data => {
     console.log(data.profileInfo.messege);
-    if(data.profileInfo.messege === 'Not Found'){
-        ui.alert('User Not Found... Try a Different One', 'alert alert-danger')
-    }
-    else{
+    if(data.profileInfo.messege !== 'Not Found'){
         ui.showProfile(data.profileInfo)
         ui.showRepos(data.repoInfo)
     }
+    else{    
+    ui.alert('User Not Found... Try a Different One', 'alert alert-danger')}
 })
 }
 else{

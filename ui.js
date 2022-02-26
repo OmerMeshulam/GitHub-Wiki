@@ -70,8 +70,8 @@ repoSection.innerHTML = output;
         alertDiv.className = className;
         alertDiv.appendChild(document.createTextNode(messege));
         const container =  document.querySelector('.searchContainer');
-    const search = document.querySelector('.search');
-    container.insertBefore(alertDiv, search);;
+      const search = document.querySelector('.search');
+      container.insertBefore(alertDiv, search);;
 
         setTimeout(() => this.clearAlert(), 2600)
     }
