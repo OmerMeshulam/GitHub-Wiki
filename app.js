@@ -13,7 +13,7 @@ github.getUser(userInput)
         ui.showRepos(data.repoInfo)
     }
     else{    
-    ui.alert("User Doesn't Exist... ", 'alert alert-danger')}
+    ui.alert("User Doesn't Exist... ", 'alert alert-danger text-center')}
 })
 }
 else{

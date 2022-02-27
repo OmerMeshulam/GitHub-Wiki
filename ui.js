@@ -7,6 +7,7 @@ class UI{
     showProfile(user){
     
         this.profile.innerHTML = `
+        <h2>Profile Info</h2>
       <div class="card card-body mb-3">
         <div class="row">
           <div class="col-md-3">
