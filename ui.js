@@ -23,7 +23,7 @@ class UI{
               <li class="list-group-item mb-1 font-weight-bold">Company: ${user.company}</li>
               <li class="list-group-item font-weight-bold">Website/Blog: ${user.blog}</li>
               <li class="list-group-item font-weight-bold">Location: ${user.location}</li>
-              <li class="list-group-item font-weight-bold">Member Since: ${(user.created_at)}</li>
+              <li class="list-group-item font-weight-bold">Member Since: ${(user.created_at).substring(0, 10)}</li>
             </ul>
           </div>
         </div>
@@ -32,7 +32,7 @@ class UI{
       <div id="repos"></div>
     `;
     }
-   //.substring(0, 10) Member Since
+   // Member Since
 
     showRepos(userRepos){
     const repoSection = document.getElementById('repos');
@@ -56,6 +56,14 @@ class UI{
                 </div>
             </div>
         </div>
+
+      <style>
+        .badge{
+          -webkit-user-select: none;
+        }
+
+      </style>
+
     `;
     })
 repoSection.innerHTML = output;
@@ -69,11 +77,11 @@ repoSection.innerHTML = output;
         const alertDiv = document.createElement('div');
         alertDiv.className = className;
         alertDiv.appendChild(document.createTextNode(messege));
-        const container =  document.querySelector('.searchContainer');
+        const container =  document.querySelector('.alert-section');
       const search = document.querySelector('.search');
-      container.insertBefore(alertDiv, search);;
+      container.appendChild(alertDiv);
 
-        setTimeout(() => this.clearAlert(), 2600)
+        setTimeout(() => this.clearAlert(), 2000)
     }
     clearAlert(){
         const alert = document.querySelector('.alert');

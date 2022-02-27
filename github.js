@@ -8,7 +8,7 @@ class Github{
 
     async getUser(user){
     const headers = {
-        "Authorization" : "Token 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"
+        "Authorization" : "Token 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 "
     }
         const profileResponse = await fetch(`https://api.github.com/users/${user}`, {
             "method": "GET",

@@ -8,13 +8,12 @@ const userInput = e.target.value;
 if(userInput !== ''){
 github.getUser(userInput)
 .then(data => {
-    console.log(data.profileInfo.messege);
-    if(data.profileInfo.messege !== 'Not Found'){
+    if(data.profileInfo.message !== 'Not Found'){
         ui.showProfile(data.profileInfo)
         ui.showRepos(data.repoInfo)
     }
     else{    
-    ui.alert('User Not Found... Try a Different One', 'alert alert-danger')}
+    ui.alert("User Doesn't Exist... ", 'alert alert-danger')}
 })
 }
 else{
