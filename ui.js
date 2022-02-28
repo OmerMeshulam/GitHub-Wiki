@@ -79,10 +79,15 @@ repoSection.innerHTML = output;
         alertDiv.className = className;
         alertDiv.appendChild(document.createTextNode(messege));
         const container =  document.querySelector('.alert-section');
-      const search = document.querySelector('.search');
-      container.appendChild(alertDiv);
+        container.appendChild(alertDiv);
+        const form = document.querySelector('input');
+        form.classList.add('is-invalid');
+ 
 
-        setTimeout(() => this.clearAlert(), 2000)
+        setTimeout(() => {
+          form.classList.remove('is-invalid')
+          this.clearAlert()
+        }, 2000)
     }
     clearAlert(){
         const alert = document.querySelector('.alert');
