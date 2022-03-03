@@ -7,11 +7,12 @@ class UI{
     showProfile(user){
     
         this.profile.innerHTML = `
+        <h2>Profile Info</h2>
       <div class="card card-body mb-3">
         <div class="row">
           <div class="col-md-3">
             <img class="img-fluid mb-2" src="${user.avatar_url}">
-            <a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
+            <a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View On GitHub <i class="fa-solid fa-arrow-right"></i></a>
           </div>
           <div class="col-md-9">
             <span class="badge btn-primary">Public Repos: ${user.public_repos}</span>
@@ -23,16 +24,16 @@ class UI{
               <li class="list-group-item mb-1 font-weight-bold">Company: ${user.company}</li>
               <li class="list-group-item font-weight-bold">Website/Blog: ${user.blog}</li>
               <li class="list-group-item font-weight-bold">Location: ${user.location}</li>
-              <li class="list-group-item font-weight-bold">Member Since: ${(user.created_at)}</li>
+              <li class="list-group-item font-weight-bold">Member Since: ${(user.created_at).substring(0, 10)}</li>
             </ul>
           </div>
         </div>
       </div>
-      <h3 class="page-heading mb-3">Latest Repositories:</h3>
+      <h3 class="page-heading mb-3">Latest Repositories</h3>
       <div id="repos"></div>
     `;
     }
-   //.substring(0, 10) Member Since
+   // Member Since
 
     showRepos(userRepos){
     const repoSection = document.getElementById('repos');
@@ -56,6 +57,14 @@ class UI{
                 </div>
             </div>
         </div>
+
+      <style>
+        .badge{
+          -webkit-user-select: none;
+        }
+
+      </style>
+
     `;
     })
 repoSection.innerHTML = output;
@@ -69,11 +78,16 @@ repoSection.innerHTML = output;
         const alertDiv = document.createElement('div');
         alertDiv.className = className;
         alertDiv.appendChild(document.createTextNode(messege));
-        const container =  document.querySelector('.searchContainer');
-      const search = document.querySelector('.search');
-      container.insertBefore(alertDiv, search);;
+        const container =  document.querySelector('.alert-section');
+        container.appendChild(alertDiv);
+        const form = document.querySelector('input');
+        form.classList.add('is-invalid');
+ 
 
-        setTimeout(() => this.clearAlert(), 2600)
+        setTimeout(() => {
+          form.classList.remove('is-invalid')
+          this.clearAlert()
+        }, 2000)
     }
     clearAlert(){
         const alert = document.querySelector('.alert');
